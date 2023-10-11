@@ -1,3 +1,20 @@
+export type Store = {
+  inventory: {
+    category: string;
+    name: string;
+    price: number;
+    quantity: number;
+    _id: string;
+  }[];
+  sales: {
+    createdAt: Date;
+    description: string;
+    price: number;
+    quantity: number;
+    updatedAt: Date;
+    _id: string;
+  }[];
+};
 const initialState = {
   inventory: [],
   sales: [],

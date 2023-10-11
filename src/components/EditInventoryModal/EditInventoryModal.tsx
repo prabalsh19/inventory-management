@@ -1,12 +1,18 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
+
+type EditInventoryModalType = {
+  showEditInventoryModal: boolean;
+  setShowEditInventoryModal: Dispatch<SetStateAction<boolean>>;
+  editItemId: string;
+};
 
 export const EditInventoryModal = ({
   showEditInventoryModal,
   setShowEditInventoryModal,
   editItemId,
-}) => {
+}: EditInventoryModalType) => {
   const [formData, setFormData] = useState({
     name: "",
     quantity: 0,

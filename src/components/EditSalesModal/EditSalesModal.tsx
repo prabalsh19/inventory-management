@@ -1,12 +1,18 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
+
+type EditSalesModalType = {
+  showEditSalesModal: boolean;
+  setShowEditSalesModal: Dispatch<SetStateAction<boolean>>;
+  editSaleId: string;
+};
 
 export const EditSalesModal = ({
   showEditSalesModal,
   setShowEditSalesModal,
   editSaleId,
-}) => {
+}: EditSalesModalType) => {
   const [formData, setFormData] = useState({
     description: "",
     price: 0,
@@ -30,7 +36,7 @@ export const EditSalesModal = ({
   const handleInputChange = (name: string, value: string | number) => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
-  const handleSubmit = async (e: Event) => {
+  const handleSubmit = async (e: React.SyntheticEvent) => {
     e.preventDefault();
     const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
     const response = await axios.post(BACKEND_URL + "api/sales/" + editSaleId, {

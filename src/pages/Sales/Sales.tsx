@@ -6,6 +6,7 @@ import dayjs from "dayjs";
 import { AddSalesModal } from "../../components/AddSalesModal/AddSalesModal";
 import { EditSalesModal } from "../../components/EditSalesModal/EditSalesModal";
 import isBetween from "dayjs/plugin/isBetween";
+import { Store } from "../../redux/reducer";
 
 export const Sales = (): JSX.Element => {
   const [showAddSalesModal, setShowAddSalesModal] = useState(false);
@@ -13,7 +14,7 @@ export const Sales = (): JSX.Element => {
   const [editSaleId, setEditSaleId] = useState("");
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
-  const sales = useSelector((state) => state.sales);
+  const sales = useSelector((state: Store) => state.sales);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -80,14 +81,7 @@ export const Sales = (): JSX.Element => {
           <th>Actions</th>
         </tr>
         {filteredSales.map(
-          ({
-            _id,
-            description,
-            price,
-            quantity,
-
-            createdAt,
-          }) => (
+          ({ _id, description, price, quantity, createdAt }) => (
             <tr>
               <td>{description}</td>
               <td>Rs. {price}</td>

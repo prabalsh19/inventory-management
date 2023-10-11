@@ -4,6 +4,7 @@ import { AddInventoryModal } from "../../components/AddInventoryModal/AddInvento
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { EditInventoryModal } from "../../components/EditInventoryModal/EditInventoryModal";
+import { Store } from "../../redux/reducer";
 
 export const Inventory = (): JSX.Element => {
   const [showAddInventoryModal, setShowAddInventoryModal] = useState(false);
@@ -11,8 +12,8 @@ export const Inventory = (): JSX.Element => {
   const [editItemId, setEditItemId] = useState("");
   const [category, setCategory] = useState("");
 
-  const inventory = useSelector((state) => state.inventory);
-
+  const inventory = useSelector((state: Store) => state.inventory);
+  console.log(useSelector((state) => state));
   const dispatch = useDispatch();
   useEffect(() => {
     (async () => {
