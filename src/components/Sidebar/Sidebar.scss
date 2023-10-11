@@ -1,0 +1,28 @@
+@import "../../App.scss";
+nav {
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+  position: fixed;
+  top: 4rem;
+  left: 0;
+  bottom: 0;
+  background-color: $secondary-color;
+  border: 1px solid white;
+  width: 15rem;
+  text-align: center;
+  padding-top: 2rem;
+  a {
+    text-decoration: none;
+    transition: 300ms;
+    color: white;
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  .active {
+    font-weight: bold;
+    letter-spacing: 2px;
+  }
+}

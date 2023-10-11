@@ -1,0 +1,14 @@
+@import "../../App.scss";
+
+.navBar {
+  background-color: $secondary-color;
+  height: 4rem;
+  h1 {
+    margin: 0;
+    padding: 1rem;
+    color: white;
+    text-decoration: overline;
+    font-size: 24px;
+    text-align: center;
+  }
+}
